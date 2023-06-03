@@ -3,7 +3,13 @@
 /************* TAREAS
  * Compila el código y ejecútalo. Responde:
  * 1. ¿Por qué el valor de xc no se modifica tras la llamada a sumC? ¿Dónde se modifca esa información?
+ * 		+ El valor no se modifica porque no se han pasado los valores por referencia, dentro de la función sum() 
+ * 		si se ha modificado pero fuera sigue teniendo el valor original.
+ * 
  * 2. Comenta las dos declaraciones adelantadas de sum() y sumC(). Compila de nuevo, ¿Qué ocurre?
+ * 		+ Se produce un error de compilación porque se intenta acceder a funciones que aun no han sido declaradas, y el
+ * 		compilador no las encuentra.
+ * 
  *******************/
 
 /* Tipo estructurado */

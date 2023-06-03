@@ -3,8 +3,8 @@ CFLAGS= -Wall -g
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
-all : punteros3.o
-	gcc $(CFLAGS) -o exe punteros3.o
+all : arg2.o
+	gcc $(CFLAGS) -o exe arg2.o
 .PHONY: clean
 
 clean:
