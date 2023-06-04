@@ -1,0 +1,10 @@
+/*Para crear un enlace simbólico:
+    ln -s ../ejercicio1/Makefile mylink
+
+Para comprobar que es efectivamente un enlace simbólico:
+    ls -l
+    Salida de consola: lrwxrwxrwx 1 usuarioso usuarioso   22 jun  4 20:21 mylink -> ../ejercicio1/Makefile
+
+¿Qué tipo de fichero es mylinkcopy? ¿Cuál es el contenido del fichero mylinkcopy?
+    mylinkcopy es un fichero de tipo Makefile, que contiene lo mismo que el archivo Makefile al que estaba apuntando el 
+    puntero simbólico.*/
