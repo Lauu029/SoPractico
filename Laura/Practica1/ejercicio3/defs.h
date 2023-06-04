@@ -38,7 +38,8 @@ typedef enum {
  */
 typedef enum {
 	VERBOSE_MODE,
-	PIPE_MODE
+	PIPE_MODE,
+	CSV_MODE
 } output_mode_t;
 
 /**
@@ -47,6 +48,7 @@ typedef enum {
  */
 struct options {
 	FILE* outfile;
+	char * inputfile;
 	output_mode_t output_mode;
 };
 
