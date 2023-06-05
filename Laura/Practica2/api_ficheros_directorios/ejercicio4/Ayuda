@@ -1,0 +1,4 @@
+Nuestro proyecto consiste en un tetris competitivo online. El juego consiste en mover y girar las fichas que van apareciendo en el extremo superior de la pantalla hasta que llegan al borde inferior, bien marcado por una ficha o por el final de la pantalla. El objetivo consiste en completar filas con las diferentes piezas.
+
+Cuando uno de los jugadores completa una línea horizontal con piezas, esta desaparecerá de su pantalla, moviendo el resto de filas hacia abajo. Como consecuencia, al otro jugador se le duplicará la fila más baja, desplazando hacia arriba todas las fichas colocadas.
+Cada jugador verá en la parte izquierda de su pantalla su partida, y en la derecha, la partida del otro jugador.
