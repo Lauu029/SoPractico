@@ -35,28 +35,28 @@ int copy_regular(int fdo, int fdd)
 
 void copy_link(char *orig, char *dest, struct stat *statbuf)
 {
-	malloc(statbuf->st_size + 1);
 	// Reservar memoria segun el tamaño del link simbolico
-	unsigned char buff[512];
+	char *buff;
+	buff = malloc(statbuf->st_size + 1);
+	
 	// Copiar en el buffer la ruta del fichero al que se apunta
 	// readlink pone el contenido del link simbolico que se le pasa en el buffer del que se le pasa tambien el tamaño
 	// hay que añadir \0 al final
-
-	printf(buff, "\n");
-	if (readlink(orig, buff, sizeof(buff) - 1) == -1)
+	if ((readlink(orig, buff, statbuf->st_size)) == -1)
 	{
 		perror("readLink");
 		exit(EXIT_FAILURE);
 	}
-	//buff[512] = '\0';
-	// crea un link simbolico en el archivo que se le pide
-	if (symlink(dest, buff) < 0)
+	buff[statbuf->st_size + 1] = '\0';
+
+	//  crea un link simbolico en el archivo que se le pide
+	if (symlink(buff, dest) < 0)
 	{
 		fprintf(stderr, "symlink failed!\n");
 		printf("%d <- error type\n", errno);
 		printf("Destiny file name: %s\n", dest);
 	}
-	// free();
+	free(buff);
 }
 
 int main(int argc, char *argv[])
