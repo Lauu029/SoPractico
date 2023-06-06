@@ -1,0 +1,8 @@
+exec(path, argumentos)
+
+las variables determinan como se llaman los argumentos y donde buscar el programa con dicho nombre
+
+El último argumento tiene que ser NULL
+
+la p (ececlP/execvP) indica que va a buscar el programa a partir del directorio PATH
+si no está la p hay que poner la ruta absoluta
