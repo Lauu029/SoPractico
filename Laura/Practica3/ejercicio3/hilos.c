@@ -25,10 +25,10 @@ void *thread_usuario(void *arg)
 
 int main(int argc, char *argv[])
 {
-	info_hilos *informacionHilos;
 	pthread_t hilos[N];
 	for (int i = 0; i < N; i++)
 	{
+		info_hilos *informacionHilos;
 		// reserva y liberación de memoria para los hilos
 		informacionHilos = malloc(sizeof(info_hilos));
 
