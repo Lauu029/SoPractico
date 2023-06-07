@@ -43,7 +43,6 @@ void PumpFuel(int pump, int id)
     printf("Cliente %d cogiendo gasolina del surtidor %d\n", id, pump);
     sleep((rand() % 3) + 1);
 }
-
 void releasePump(int pump)
 {
     pthread_mutex_lock(&m);

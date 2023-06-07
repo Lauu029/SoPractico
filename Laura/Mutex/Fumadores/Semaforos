@@ -1,0 +1,11 @@
+/*
+    sem_t cocinero
+    //El ultimo numero es como se inicializa el semaforo
+    sem_init(&cocinero,0,1)
+
+    //si valor >= 0 avanza
+    //si valor < 0 se queda bloqueado
+    sem_wait(&cocinero)-> valor - 1;
+
+    sem_post(&cocinero) valor + 1;
+*/
