@@ -17,4 +17,4 @@ $(BIN): %: %.o
 .PHONY: clean
 
 clean:
-	-rm $(BIN) $(OBJ)
+	-rm $(BIN) $(OBJ)
