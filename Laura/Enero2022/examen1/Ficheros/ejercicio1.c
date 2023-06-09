@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 {
     struct task tasks[MAXPROC];
 
-    //inicializa todo a cero
+    // inicializa todo a cero
     for (int i = 0; i < MAXPROC; i++)
     {
         tasks[i].valid = 0;
@@ -45,7 +45,6 @@ int main(int argc, char *argv[])
 
     FILE *file = NULL;
     int *c;
-    // int charOriginal;
     int ret;
 
     // Devuelve error si no se detectan dos argumentos en la entrada a la ejecución
@@ -61,10 +60,11 @@ int main(int argc, char *argv[])
         err(2, "The input file %s could not be opened", argv[1]);
 
     char *token;
+    token = (char *)malloc(sizeof(char) * MAXPROC);
     char *aux;
     aux = (char *)malloc(sizeof(char));
     int i = 0;
-    int numParents = 0;
+    int numParents;
     int padre;
     int j;
     while ((aux = fgets(token, MAXPROC + 1, file)) != NULL)

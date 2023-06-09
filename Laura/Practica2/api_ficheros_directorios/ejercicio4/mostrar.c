@@ -15,6 +15,7 @@ void read_file(char *file, int offset, int start)
 
 	// Desplazo el puntero del fichero el offset necesario
 	lseek(fdo, offset, start);
+	
 	// lectura normal del resto del fichero y muestra por pantalla
 	int readBytes;
 	char *buff;

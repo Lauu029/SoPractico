@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <pthread.h>
+#include <semaphore.h>
 
 int ingredientes[3];
 sem_t ag;
@@ -63,7 +64,6 @@ int main(int argc, char *argv[])
         pthread_create(&fumadores[i], NULL, fumador, &idFumador[i]);
     }
     pthread_create(&hiloAgente, NULL, agente, NULL);
-
     for (int i = 0; i < 3; i++)
     {
         pthread_join(fumadores[i], NULL);

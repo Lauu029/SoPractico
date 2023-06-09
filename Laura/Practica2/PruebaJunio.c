@@ -501,7 +501,9 @@ int main(int argc, char *argv[])
 
             // free
             free(st);
+
             fclose(alumnos);
+            
             exit(0);
         }
         else if (opt == 'q')
