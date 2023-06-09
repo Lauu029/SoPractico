@@ -31,10 +31,17 @@ void print_graph(struct task tasks[], int n)
 }
 int main(int argc, char *argv[])
 {
-    // struct task *tasks;
-    // tasks = (task *)malloc(sizeof(task *) * MAXPROC);
-    // free(tasks);
     struct task tasks[MAXPROC];
+
+    //inicializa todo a cero
+    for (int i = 0; i < MAXPROC; i++)
+    {
+        tasks[i].valid = 0;
+        for (int j = 0; j < MAXPROC; j++)
+        {
+            tasks[i].next[j] = 0;
+        }
+    }
 
     FILE *file = NULL;
     int *c;
@@ -54,27 +61,28 @@ int main(int argc, char *argv[])
         err(2, "The input file %s could not be opened", argv[1]);
 
     char *token;
-    token = (char *)malloc(sizeof(char) * MAXPROC);
     char *aux;
     aux = (char *)malloc(sizeof(char));
     int i = 0;
     int numParents = 0;
-    int hijo;
+    int padre;
     int j;
     while ((aux = fgets(token, MAXPROC + 1, file)) != NULL)
     {
-        tasks[i].id = atoi(strsep(&token, ","));
+        // variable auxiliar porque strsep hace cosas raras con el malloc
+        char *lineaAux = strdup(token);
+        tasks[i].id = atoi(strsep(&lineaAux, ","));
         tasks[i].valid = 1;
-        numParents = atoi(strsep(&token, ","));
-        printf("Aqui %d numparents %s token\n", numParents, token);
+        numParents = atoi(strsep(&lineaAux, ","));
         for (j = 0; j < numParents; j++)
         {
-            hijo = atoi(strsep(&token, ","));
-            tasks[j].next[hijo] = 1;
+            padre = atoi(strsep(&lineaAux, ","));
+            tasks[padre].next[tasks[i].id] = 1;
         }
         i++;
+        free(lineaAux);
     }
-    print_graph(tasks, hijo);
+    print_graph(tasks, i);
     free(token);
     free(aux);
     return 0;
