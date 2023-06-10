@@ -14,7 +14,7 @@ int entrar_comedor_y_sentarse(int id)
 {
     pthread_mutex_lock(&m);
     int miTurno = ticket;
-    ticket++;
+    ticket = (ticket + 1) % N;
     numSentadas++;
     // Avisa de que se ha sentado
     pthread_cond_broadcast(&come);
@@ -33,10 +33,7 @@ void salir_comedor(int miTurno, int id)
 
     turno = (turno + 1) % N;
     numSentadas--;
-    // Resetea los tickets si ha llegado a 0 el turno
-    if (!turno)
-        ticket = 0;
-    printf("Monja %d que habia llegado la numero %d se ha levantado de la mesa...\n", id, miTurno);
+    printf("Monja %d que habia llegado la numero %d se ha levantado de la mesa...\n", id, miTurno + 1);
     pthread_cond_broadcast(&sal);
     pthread_mutex_unlock(&m);
 }
@@ -65,7 +62,7 @@ int main(int argc, char *argv[])
     pthread_mutex_init(&m, NULL);
     pthread_cond_init(&sal, NULL);
     pthread_cond_init(&come, NULL);
-    
+
     for (int i = 0; i < N; i++)
     {
         idMonjas[i] = i;
